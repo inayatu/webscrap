@@ -1,2 +1,2 @@
 # webscrap
-webscraping project using bs4 and scrapyy of different websites
+webscraping of different websites using bs4 and scrapy
