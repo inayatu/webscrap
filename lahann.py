@@ -8,7 +8,7 @@ baseLink = "http://lahann.engin.umich.edu/research"
 separator = ','
 
 f = open("lahann.csv", "wb")
-f.write("Research Title, Background, Technology and Advantages over Naturally-Derived Matrices, Application\n")
+f.write("Title, Background, Advantage, Application\n")
 
 url = baseLink
 r = requests.get(url)
@@ -55,20 +55,20 @@ for index in range(0, length):
         backgr = backgr.replace(",", " ")
         backgr = backgr.replace("'", " ")
         backgr = backgr.replace('"', " ")
-        backgr = backgr.replace("\n", " ")
+        # backgr = backgr.replace("\n", " ")
         backgr = backgr.replace("\r", " ")
         backgr = backgr.replace("\t", " ")
 
         techAdvan = techAdvan.replace("'", " ")
         techAdvan = techAdvan.replace('"', " ")
-        techAdvan = techAdvan.replace("\n", " ")
+        # techAdvan = techAdvan.replace("\n", " ")
         techAdvan = techAdvan.replace("\r", " ")
         techAdvan = techAdvan.replace("\t", " ")
 
         application = application.replace(",", " ")
         application = application.replace("'", " ")
         application = application.replace('"', " ")
-        application = application.replace("\n", " ")
+        # application = application.replace("\n", " ")
         application = application.replace("\r", " ")
         application = application.replace("\t", " ")
 
@@ -77,6 +77,7 @@ for index in range(0, length):
         f.write(techAdvan.encode('utf8')+separator)
         f.write(application.encode('utf8'+"\n"))
 
+        print("title". title)
         print('___________________________________________________________')
         print('Background::', backgr)
         print('___________________________________________________________')
@@ -89,57 +90,58 @@ for index in range(0, length):
 
 
 # URl of third link
-url3 = baseLink+"/atrp"
-url3 = requests.get(url3)
-data3 = url3.text
+# url3 = baseLink+"/atrp"
+# url3 = requests.get(url3)
+# data3 = url3.text
 
-soup3 = BeautifulSoup(data3,"html.parser")
-title = soup3.find("span", {"id" : "sites-page-title"}).text
-title = title.replace(",", " ")
-title = title.replace("'", " ")
-title = title.replace('"', " ")
-title = title.replace("\n", " ")
-title = title.replace("\r", " ")
-title = title.replace("\t", " ")
-
-
-backgr = soup3.find("div", {"class" : "sites-tile-name-header"})
-techAdvan = soup3.find("td", {"class" : "sites-tile-name-content-1"})
-application = soup3.find("div", {"class" : "sites-tile-name-footer"})
-application = application.find_all("font")
+# soup3 = BeautifulSoup(data3,"html.parser")
+# title = soup3.find("span", {"id" : "sites-page-title"}).text
+# title = title.replace(",", " ")
+# title = title.replace("'", " ")
+# title = title.replace('"', " ")
+# title = title.replace("\n", " ")
+# title = title.replace("\r", " ")
+# title = title.replace("\t", " ")
 
 
-backgr = backgr.text
-techAdvan = techAdvan.text
-application = application[1].text
-
-backgr = backgr.replace(",", " ")
-backgr = backgr.replace("'", " ")
-backgr = backgr.replace('"', " ")
-backgr = backgr.replace("\n", " ")
-backgr = backgr.replace("\r", " ")
-backgr = backgr.replace("\t", " ")
-
-techAdvan = techAdvan.replace("'", " ")
-techAdvan = techAdvan.replace('"', " ")
-techAdvan = techAdvan.replace("\n", " ")
-techAdvan = techAdvan.replace("\r", " ")
-techAdvan = techAdvan.replace("\t", " ")
-
-application = application.replace(",", " ")
-application = application.replace("'", " ")
-application = application.replace('"', " ")
-application = application.replace("\n", " ")
-application = application.replace("\r", " ")
-application = application.replace("\t", " ")
-
-print('background::', backgr)
-print('techAdvan::', techAdvan)
+# backgr = soup3.find("div", {"class" : "sites-tile-name-header"})
+# techAdvan = soup3.find("td", {"class" : "sites-tile-name-content-1"})
+# application = soup3.find("div", {"class" : "sites-tile-name-footer"})
+# application = application.find_all("font")
 
 
-f.write(title.encode('utf8')+separator)
-f.write(backgr.encode('utf8')+separator)
-f.write(techAdvan.encode('utf8')+separator)
+# backgr = backgr.text
+# techAdvan = techAdvan.text
+# application = application[1].text
+
+# backgr = backgr.replace(",", " ")
+# backgr = backgr.replace("'", " ")
+# backgr = backgr.replace('"', " ")
+# backgr = backgr.replace("\n", " ")
+# backgr = backgr.replace("\r", " ")
+# backgr = backgr.replace("\t", " ")
+
+# techAdvan = techAdvan.replace("'", " ")
+# techAdvan = techAdvan.replace('"', " ")
+# techAdvan = techAdvan.replace("\n", " ")
+# techAdvan = techAdvan.replace("\r", " ")
+# techAdvan = techAdvan.replace("\t", " ")
+
+# application = application.replace(",", " ")
+# application = application.replace("'", " ")
+# application = application.replace('"', " ")
+# application = application.replace("\n", " ")
+# application = application.replace("\r", " ")
+# application = application.replace("\t", " ")
+
+# print('background::', backgr)
+# print('techAdvan::', techAdvan)
+
+
+# f.write(title.encode('utf8')+separator)
+# f.write(backgr.encode('utf8')+separator)
+# f.write(techAdvan.encode('utf8')+separator)
+# f.write(application.encode('utf8'+"\n"))
 
 
 f.close
